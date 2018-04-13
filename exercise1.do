@@ -60,8 +60,10 @@ list if dup
 *a) replace PII 
  
 sort surveyor, stable
-gen j=0
-gen surveyor_num=0
+outsheet uniqueid suveyor "$path/PII_clean.csv", comma replace
+encode surveyor, gen(surveyor1)
+_strip_labels surveyor1
+rename surveyor1 surveyor
 
 /*
 foreach i of var surveyor {
